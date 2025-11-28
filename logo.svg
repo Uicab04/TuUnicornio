@@ -1,0 +1,83 @@
+<svg id="logoSVG" width="500" height="150" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+                        <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1"/>
+                        <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1"/>
+                    </linearGradient>
+                    <linearGradient id="hornGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1"/>
+                        <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:1"/>
+                    </linearGradient>
+                    <radialGradient id="shineGradient">
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9"/>
+                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+                    </radialGradient>
+                </defs>
+                
+                <!-- Sin fondo (transparente) -->
+                
+                <!-- Estrellas decorativas con animación -->
+                <g transform="translate(60, 35)">
+                    <polygon points="0,-6 1.5,-1.5 6,-1.5 2.5,1.5 4,6 0,3 -4,6 -2.5,1.5 -6,-1.5 -1.5,-1.5" fill="#ffd700" opacity="0.7">
+                        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite"/>
+                    </polygon>
+                </g>
+                <g transform="translate(440, 40)">
+                    <polygon points="0,-5 1,-1 5,-1 2,1 3,5 0,3 -3,5 -2,1 -5,-1 -1,-1" fill="#ec4899" opacity="0.7">
+                        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="3s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+                    </polygon>
+                </g>
+                <g transform="translate(40, 90)">
+                    <polygon points="0,-4 1,-1 4,-1 2,1 2.5,4 0,2 -2.5,4 -2,1 -4,-1 -1,-1" fill="#a78bfa" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+                    </polygon>
+                </g>
+                <g transform="translate(460, 100)">
+                    <polygon points="0,-4 1,-1 4,-1 2,1 2.5,4 0,2 -2.5,4 -2,1 -4,-1 -1,-1" fill="#f093fb" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="4.5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.8s" repeatCount="indefinite"/>
+                    </polygon>
+                </g>
+                
+                <!-- Texto "Tu Unicornio" -->
+                <text x="250" y="70" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="bold" fill="url(#mainGradient)" text-anchor="middle">Tu Unicornio</text>
+                
+                <!-- Cuerno más grande y ladeado en la última O -->
+                <g transform="translate(415, 28) rotate(15 0 0)">
+                    <polygon points="0,-32 -6,0 6,0" fill="url(#hornGradient)"/>
+                    <line x1="-4" y1="-25" x2="4" y2="-25" stroke="#ffffff" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
+                    <line x1="-3.5" y1="-18" x2="3.5" y2="-18" stroke="#ffffff" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
+                    <line x1="-3" y1="-11" x2="3" y2="-11" stroke="#ffffff" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
+                    <line x1="-2" y1="-5" x2="2" y2="-5" stroke="#ffffff" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
+                    <circle cx="0" cy="-30" r="4" fill="url(#shineGradient)" opacity="0.95">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="-8" cy="-22" r="2" fill="#ffd700" opacity="0.8">
+                        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="8" cy="-22" r="2" fill="#ffd700" opacity="0.8">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="-6" cy="-12" r="1.5" fill="#ffffff" opacity="0.9">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="6" cy="-12" r="1.5" fill="#ffffff" opacity="0.9">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+                
+                <!-- Línea decorativa -->
+                <line x1="130" y1="87" x2="370" y2="87" stroke="url(#mainGradient)" stroke-width="2.5" opacity="0.5" stroke-linecap="round"/>
+                
+                <!-- Subtítulo "SOLUCIONES GEEKS" -->
+                <text x="250" y="107" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="300" fill="#764ba2" text-anchor="middle" letter-spacing="4">SOLUCIONES GEEKS</text>
+                <text x="125" y="107" font-family="Courier New, monospace" font-size="16" fill="#667eea" opacity="0.6" font-weight="bold">&lt;/&gt;</text>
+                <text x="365" y="107" font-family="Courier New, monospace" font-size="16" fill="#667eea" opacity="0.6" font-weight="bold">{...}</text>
+                
+                <!-- Tagline -->
+                <text x="250" y="132" font-family="Arial, Helvetica, sans-serif" font-size="13" font-style="italic" fill="#718096" text-anchor="middle">Donde las ideas se vuelven leyenda</text>
+            </svg>
