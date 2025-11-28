@@ -1,0 +1,50 @@
+# Archivos de configuración sensibles
+# Descomenta estas líneas si quieres proteger tus credenciales
+# database.php
+# config.php
+
+# O mejor aún, crea archivos de ejemplo:
+# database.example.php
+# config.example.php
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+error_log
+
+# Archivos temporales
+*.tmp
+*.bak
+*.cache
+
+# Node modules (si usas Node.js)
+node_modules/
+.pnp
+.pnp.js
+
+# Archivos de entorno
+.env
+.env.local
+.env.production
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos comprimidos
+*.zip
+*.tar.gz
+*.rar
+
+# Archivos de backup de base de datos
+*.sql.bak
+*.sql.gz
+

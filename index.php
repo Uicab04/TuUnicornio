@@ -2,10 +2,15 @@
 // Configuración de headers
 header('Content-Type: text/html; charset=UTF-8');
 
-// Variables de configuración
-$contactEmail = "tu@email.com"; // Cambiar a tu email
-$siteName = "Tu Unicornio";
-$siteSubtitle = "Soluciones Geeks";
+// Incluir archivos necesarios
+require_once 'database.php';
+require_once 'models/Solicitud.php';
+
+// Cargar configuración
+$config = require 'config.php';
+$contactEmail = $config['contact_email'];
+$siteName = $config['site_name'];
+$siteSubtitle = $config['site_subtitle'];
 
 // Procesamiento del formulario
 $formMessage = "";
@@ -27,30 +32,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $formMessage = "Por favor, completa todos los campos.";
         $messageType = "error";
     } else {
-        // Preparar contenido del email
-        $subject = "Nueva solicitud de web: " . $empresa;
-        $bodyEmail = "
-        Nombre: $nombre\n
-        Email: $email\n
-        Empresa: $empresa\n
-        Tipo de web: $tipo\n
-        Descripción del proyecto:\n
-        $descripcion\n
-        ---\n
-        Mensaje enviado desde: " . $_SERVER['HTTP_HOST'];
+        // Guardar en base de datos
+        $solicitud = new Solicitud();
+        $resultado = $solicitud->guardar($nombre, $email, $empresa, $tipo, $descripcion);
         
-        $headers = "From: $email\r\n";
-        $headers .= "Reply-To: $email\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-        
-        // Enviar email
-        if (mail($contactEmail, $subject, $bodyEmail, $headers)) {
+        if ($resultado['success']) {
+            // Preparar contenido del email
+            $subject = "Nueva solicitud de web: " . $empresa;
+            $bodyEmail = "
+            Nombre: $nombre\n
+            Email: $email\n
+            Empresa: $empresa\n
+            Tipo de web: $tipo\n
+            Descripción del proyecto:\n
+            $descripcion\n
+            ---\n
+            ID de solicitud: " . $resultado['id'] . "\n
+            Mensaje enviado desde: " . $_SERVER['HTTP_HOST'];
+            
+            $headers = "From: $email\r\n";
+            $headers .= "Reply-To: $email\r\n";
+            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+            
+            // Enviar email (opcional, ya está guardado en BD)
+            @mail($contactEmail, $subject, $bodyEmail, $headers);
+            
             $formMessage = "¡Gracias! Hemos recibido tu solicitud. Nos contactaremos en 24 horas.";
             $messageType = "success";
             // Limpiar formulario
             $nombre = $email = $empresa = $tipo = $descripcion = "";
         } else {
-            $formMessage = "Hubo un error al enviar. Por favor intenta de nuevo.";
+            $formMessage = "Hubo un error al guardar tu solicitud. Por favor intenta de nuevo.";
             $messageType = "error";
         }
     }
